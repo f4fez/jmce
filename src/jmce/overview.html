@@ -1,0 +1,483 @@
+<html>
+<head>
+</head>
+<body>
+<a name="LICENSE">
+<pre>
+   Copyright (c) 2010, Mario Viara
+
+   Permission is hereby granted, free of charge, to any person obtaining a
+   copy of this software and associated documentation files (the "Software"),
+   to deal in the Software without restriction, including without limitation
+   the rights to use, copy, modify, merge, publish, distribute, sublicense,
+   and/or sell copies of the Software, and to permit persons to whom the
+   Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in
+   all copies or substantial portions of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+   FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+   ROBERT M SUPNIK BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+   IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+   CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+   Except as contained in this notice, the name of Mario Viara shall not be
+   used in advertising or otherwise to promote the sale, use or other dealings
+   in this Software without prior written authorization from Mario Viara.
+</pre>
+
+<a name="TOP">
+<h1>JMCE Version 1.02</h1>
+<b>JMCE</b> a <b>J</b>ava <b>M</b>ultiple <b>C</b>omputer
+<b>E</b>mulator.
+JMCE is a simulator
+for 8 bit microprocessor (Intel 8080, Zilog Z80, Intel 8051,etc)
+ and many computer based over them as ZX Spectrum, Altair 8800 ,
+ Z80Pack, etc. running their original ROM and operating system. All JMCE
+ computer can be configure programmatically or using xml, for example
+ it is possible connect the console of IMSAI 8080 to one TCP server or
+ to one phisical serial interface without writing one line of code or
+ it is possible change the memory for the Z80Pack computer from plain
+ to banked memory again only editing a single xml files. A more
+ complete documentation of parameters is available in the javadocs of
+ the package.
+
+<h2>Main characteristics</h2>
+<ul>
+ <li>Tested under Windows, Linux and MAC OS X.</li>
+ <li>Written in Java run every where !.</li>
+ <li>Integrated command line monitor (option -m).</li>
+ <li>Integrated GUI debugger (option -d).</li>
+ <li>Logging using standard java.util.logging package.</li>
+ <li>Many CPU as Intel 8080, Zilog Z80, Intel 8052, Mos 6502 
+ etc.</li>
+ <li>Accurate real time emulation. The clock jitter is less than
+ 1%</li>
+ <li>Plain and banked memory.</li>
+ <li>Many terminal emulation including VT100. Unlike others emulators
+ the terminal emulation is embedded in the software and do not depend
+ from the target operating system</li>
+ <li>Disk from file image and from native directories (Only CP/M 2.2).</li>
+ <li>Console on tty (using native class on Windows and Linux).</li>
+ <li>Serial port connected to TCP socket.</li>
+ <li>Serial port connected to physical serial line.</li>
+ <li>Serial port to file.</li>
+ <li>Serial port to terminal.</li>
+ <li>Automatic detection of idle time.</li>
+ <li>Cassette emulation at host cpu speed.</li>
+</ul>
+
+
+<h1>Index</h1>
+<ul>
+ <li><a href="#OVERVIEW">Overview</a></li>
+ <li><a href="#INSTALLATION">Installation</a></li>
+ <li><a href="#CUSTOMIZE">Customize JMCE</a></li>
+</ul>
+
+<p>
+<h2><a name="OVERVIEW"></a>Overview</h2>
+A more detailed documentation can be found on the javadoc od the
+project available <a href="http://www.viara/en/jmce/docs/">/here></a>.
+where all the computer are described in details.
+
+<p>
+<h3>Supported microprocessor</h3>
+<p>
+The microprocessor supported are listed only by family and not in
+detail, for example only the Intel 8051 is listed and not the
+successor Intel 8052 or the LPC900 family from NXP.
+
+<p>
+<table border="1" cellpadding="2">
+ <tr>
+  <th>Microprocessor</th>
+  <th>Status</th>
+ </tr>
+ <tr>
+  <td>Intel 8080</td>
+  <td>Complete and fully tested.</td>
+ </tr>
+
+ <tr>
+  <td>Zilog Z80</td>
+  <td>Complete and fully tested.</td>
+ </tr>
+
+ <tr>
+  <td>Intel 8051</td>
+  <td>Complete and fully tested.</td>
+ </tr>
+
+ <tr>
+  <td>MOS 6502</td>
+  <td>Completed.</td>
+ </tr>
+
+ <tr>
+  <td>Intel 8086</td>
+  <td>Not completed.</td>
+ </tr>
+
+ <tr>
+  <td>Freescale HCS05/08</td>
+  <td>Not completed</td>
+ </tr>
+
+</table>
+
+<h3>Supported computer</h3>
+Based on supported microprocessor the following computer and embedded machine
+are available :
+<p>
+<table border="1" cellpadding="2">
+ <tr>
+  <th>Name</th>
+  <th>Main class</th>
+  <th>Notes</th>
+ </tr>
+
+ <tr>
+  <td colspan="3"><b><i>Z80/8080  family</i></b></td>
+ </tr>
+
+ <tr>
+  <td>Z80Pack</td>
+  <td>jmce.z80pack.Z80Pack</td>
+  <td>Complete and fully tested.</td>
+ </tr>
+
+<tr>
+ <td>Altair 8800</td>
+ <td>jmce.altair.Altair</td>
+ <td>8080 Version complete and fully tested. Z80 version is not
+ completed.</td>
+</tr>
+
+<tr>
+ <td>Imsai 8080</td>
+ <td>jmce.imsai.Imsai</td>
+ <td>Work but not completed</td>
+</tr>
+
+<tr>
+ <td>Yaze Z80</td>
+ <td>jmce.yaze.Yaze</td>
+ <td>Work but require a Z80 bios.</td>
+</tr>
+
+
+</tr>
+  <td>Spectrum 48K</td>
+  <td>jmce.sinclair.spectrum.Spectrum48K</td>
+  <td>Complete and fully tested.</td>
+</tr>
+
+</tr>
+  <td>Spectrum 128K</td>
+  <td>jmce.sinclair.spectrum.Spectrum128K</td>
+  <td>Work but not completed.</td>
+</tr>
+
+</tr>
+  <td>Philips P2000T</td>
+  <td>jmce.philips.p2000.P2000T</td>
+  <td>The cassette emulation is missing because  do to lack of
+  information.</td>
+</tr>
+
+ <tr>
+  <td colspan="3"><b><i>Intel 8051  family</i></b></td>
+ </tr>
+
+</tr>
+  <td><a href="http://www.viara.eu/en/diseqc/"/>Diseqc</a> positioner
+   using philips LPC764</td>
+  <td>jmce.viara.diseqc.Diseqc</td>
+  <td>Complete and fully tested.</td>
+</tr>
+
+</tr>
+  <td>V8052 Virtual 8052 with default configuration at reset load a
+  sample <a href = "http://www.viara.eu/en/rt/>"/>Free Real Time OS</a>
+  apllication.</td>
+  <td>jmce.viara.v8052.V8052</td>
+  <td>Complete and fully tested.</td>
+</tr>
+
+</tr>
+  <td>NXP/Philips LPC936</td>
+  <td>jmce.philips.lpc900.LPC936</td>
+  <td>Complete and fully tested.</td>
+</tr>
+
+</tr>
+  <td>8052 Running <a 
+  href="http://cmon51.sourceforge.net/"/>CMON51</a></td>
+  <td>jmce.cmon51.CMON51</td>
+  <td>Complete and fully tested.</td>
+</tr>
+
+ <tr>
+  <td colspan="3"><b><i>MOS 65xx  family</i></b></td>
+ </tr>
+
+</tr>
+  <td>Commodore VIC20</td>
+  <td>jmce.commodore.vic20.VIC20</td>
+  <td>Complete and fully tested.</td>
+</tr>
+
+<p>
+</table>
+<p>
+For complete description of the features and emulated peripherals
+please check the relative Java docs. This is only the base class and
+do not include the variant available via xml confguration. For example
+every single serial port can be redirect to one TCP connections, to one
+physical serial line or to one file.
+<p>
+Goto to the <a href="#TOP">top</a>  of the page.
+
+
+<p>
+<h2><a name="INSTALLATION"></a>Installation</h2>
+<p>
+<b>The current version of JMCE is compiled using java 1.6 so the Java 1.6
+JRE must be correctly installed before  install the binary
+package.</b>
+<p>
+Extract the package named <b>jmce-xxx.tar.gz</b>,where <b>xxx</b> is
+the version number  in one new directory the
+structure of the directory it will look like this :
+<p>
+
+<table border="1" cellpassing="2">
+ <tr>
+  <th>Name</th>
+  <th>Description</th>
+ </tr>
+
+ <tr>
+  <td><b>bin/</b></td>
+  <td>Directory with native shared library.</td>
+ </tr>
+
+ <tr>
+  <td><b>jars/</b></td>
+  <td>Directory jars files.</td>
+ </tr>
+
+ <tr>
+  <td><b>xml/</b></td>
+  <td>Directory with preconfigured JMCE machine.</td>
+ </tr>
+
+ <tr>
+  <td><b>/</b></td>
+  <td>Directory with preconfigured JMCE machine.</td>
+ </tr>
+
+
+ <tr>
+  <td><b>hex/</b></td>
+  <td>Directory with various Intel hex program for the 8051 processor
+  family.</td>
+ </tr>
+
+ <tr>
+  <td><b>disks</b></td>
+  <td>Varius CP/M application. Work with many emulator.</td>
+ </tr>
+ <tr>
+
+ <tr>
+  <td><b>yaze/</b></td>
+  <td>Directiory with disk and loader for Yaze emulator.</td>
+ </tr>
+ <tr>
+
+  <td><b>z80pack/</b></td>
+  <td>Directory with disk and loader for Z80pack. To keep the
+  distribution little only CP/M 3.0 disk images are included but more
+  distribution can be downloaded from <a
+  href="http://www.unix4fun.org/z80pack/#download"/>here</a>.</td>
+ </tr>
+
+ <tr>
+  <td><b>altair</b></td>
+  <td>Directory with disk and software for Altair 8080. In the
+  distribution only the original CP/M 2.2 is available</td>
+ </tr>
+
+ <tr>
+  <td><b>imsai</b></td>
+  <td>Directory with program for imsai 8080</td>
+ </tr>
+
+ 
+ <tr>
+  <td><b>sinclair</b></td>
+  <td>Directory with rom and software for Sinclair computer. For the
+  spectrum 48K/128K.</td>
+ </tr>
+
+<tr>
+ <td><b>p2000</b></td>
+ <td>Directory with ROM for philips P2000.</td>
+</tr>
+
+ <tr>
+  <td><b>jmce</b></td>
+  <td>Linux JMCE startup script.</td>
+ </tr>
+
+ <tr>
+  <td><b>jmce.bat</b></td>
+  <td>Windows JMCE startup script.</td>
+ </tr>
+
+ <tr>
+  <td><b>readme.txt</b></td>
+  <td>Short text file with instruction.</td>
+ </tr>
+
+  <td><b>readme.html</b></td>
+  <td>Better description and install istruction.</td>
+ </tr>
+
+ 
+</table>
+<p>
+Try the command : jmce.<b> Of course in Linux where is written
+<tt>jmce</tt> you must write <tt>./jmce.sh</tt></b><p>
+A simple usage screen will be display if  JMCE and the JRE are
+correctly installed.
+<p>
+JMCE have few options and as argument the name of the class for the
+desired computer or the xml files with the configuration.
+The argument can be omitted if JMCE is started with the
+integrated debugger / monitor (option -m) program.
+
+The option -m Start JMCE with the integrated monitor. As default the
+monitor run in one Swing window but can also be started as TCP server
+listening for a connection in a specific port (options -p port and -t
+1).
+
+The option -d Start JMCE with the integrated GUI debugger.
+
+<p>
+<h3>Samples</h3>
+<ul>
+ <li><tt>jmce jmce.z80pack.Z80Pack</tt><p>Start jmce with Z80Pack at default
+(Will boot CP/M 2.2)</li>
+
+ <li><tt>jmce -m jmce.z80pack.Z80Pack</tt><p> Open a monitor window and start
+the Z80Pack at default configuration. Require java swing. The
+simulator do not start automatically you must type the command
+<b>go</b> in  the Monitor windows.<p></li>
+
+< li><tt>jmce jmce.sinclair.spectrum.Spectrum48K</tt><p> Start the emulator for
+Sinclair Spectrum 48K. Require usage of java swing.</li>
+
+ <li><tt>jmce -t 1 -p 2023 -m jmce.z80pack.Z80Pack</tt<p>Open the monitor
+using a TCP server connection on the port 2023. Open a new session
+without closing the current one and using the command <tt>telnet
+127.0.0.1 2023</tt>you can give command and start the simulator.
+
+ <li><tt>jmce -d jmce.commodore.vic20.VIC20</tt><p>Start the emulator
+ for the commodore VIC20 with the integrated GUI debugger.
+</ul>
+
+<b>To stop the emulator without monitor (option -m) press
+<tt>CTRL-^</tt></b> this key can be changed setting the property
+</tt>abortKey</tt> of the class jmce.sim.terminal.SampleTerminal.
+<p>
+Goto to the <a href="#TOP">top</a>  of the page.
+
+<h2><a name="CUSTOMIZE"></a>Customize JMCE</h2>
+<p>
+<p>
+The xml files used by JMCE are created using the monitor and the
+standard Java encode/decoder <g>java.beans.XMLEncoder</g>. All class
+defined in the package have public method to set/get the properties
+and the properties will be evaluated only during the initialization so
+it is possible changed/add properties and reload the class. In the
+preconfigured example in the configuration file only the properties
+changed from the default value are included to have xml file shorter
+and more human readable.
+
+A set of preconfigured xml files are distribuited with the binary
+version of JMCE they are in the <tt>xml/</tt> directory under the root
+of installed JMCE executable.
+
+<p>
+<h3>Preconfigured xml files</h3>
+<p>
+<table border="1" cellpadding="2">
+ <tr>
+  <th>File</th>
+  <th>Description</th>
+ </tr>
+ <tr>
+  <td><b>cmon51_swing.xml</b></td>
+  <td>Start the 8052 CMON computer with serial port connected to one
+  swing terminal.</td>
+ </tr>
+ <tr>
+  <td><b>cmon51_tcp.xml</b></td>
+  <td>Start the 8052 CMON computer with the serial port connected a
+  one TCP server port 2023. To see the console it is enough connecting
+  one terminal as <tt>Putty</tt> or </tt>telnet</tt> to this port.
+ </td>
+</tr>
+<tr>
+ <td><b>cmon51_tty.xml</b></td>
+ <td>Start the 8052 CMO51 computer with the serial port connected to
+ one terminal in the current console.</td>
+</tr>
+
+
+</table>
+<h3>Customizing xml files</h3>
+<p>
+It is possible customize one preconfigured files or generate a new one
+from predefined class.
+<p>
+
+<h4>Generating new xml files</h4>
+To generate a new one xml files start the Jmce with the monitor
+(options -m) and the name of the main class for example to generate
+the xml files relative to the default configuration of z80pack write
+the following command : <b>jmce -m jmce.z80pack.Z80Pack</b> when the
+console will open write the command : <tt>xml save test.xml</tt>
+this command generate a file called test.xml with the current loaded
+configuration . Now write the command <tt>quit</tt> and the
+control will return to the command prompt.
+<p>
+<h4>Modify property</h4>
+<p>
+<p>To change one property is is necessary edit the xml files for
+for example to change the operating system we can search the line like this :
+<p>
+<pre>
+             <void property="imageName"> 
+             <string>z80pack/disks/library/cpm2-1.dsk</string> 
+</pre>
+and change the property string from
+<b>z80pack/disks/library/cpm2-1.dsk</b> to
+<b>z80pack/disks/library/cpm3-1.dsk</b>  now if we try to start the
+modified xml files with : <tt>jmce test.xml</tt> the z80pack will
+start with the CP/M 3.0.
+
+<p>
+<h3>Compiling JMCE from source</h3>
+<p>
+To compile JMCE a JDK 1.6 or better is required. Extract the source package in
+one new directory and start ant (require cpptasks.jar and
+ant-contrib.jar). The required ant extension are in the directory
+contrib of the source package.
+</body>
+</html>

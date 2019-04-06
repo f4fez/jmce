@@ -1,0 +1,88 @@
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x00 as BRK
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0xEA as NOP
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x9A as TXS
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x69 as ADC	#%byte
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x65 as ADC	%byte
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x75 as ADC	%byte,X
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x6D as ADC	#%word
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x7D as ADC	#%word,X
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x79 as ADC	#%word,Y
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x61 as ADC	#(%byte,X)
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x71 as ADC	#(%byte,Y)
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x29 as ANL	#%byte
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x25 as ANL	%byte
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x35 as ANL	%byte,X
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x2D as ANL	#%word
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x3D as ANL	#%word,X
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x39 as ANL	#%word,Y
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x21 as ANL	#(%byte,X)
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x31 as ANL	#(%byte,Y)
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0xBA as TSX
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x48 as PHA
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x68 as PLA
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x08 as PHP
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x28 as PLP
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x18 as CLC
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x38 as SEC
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x58 as CLI
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0x78 as SEI
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0xB8 as CLV
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0xD8 as CLD
+20-mag-2008 14.03.36 jmce.sim.AbstractCPU setOpcode
+INFO: setOpcode 0xF8 as SED
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.mos.M6502
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.StandardRegister
+20-mag-2008 14.03.36 jmce.sim.AbstractRegister setValue
+INFO: setValue A=0x00
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.StandardRegister
+20-mag-2008 14.03.36 jmce.sim.AbstractRegister setValue
+INFO: setValue X=0x00
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.StandardRegister
+20-mag-2008 14.03.36 jmce.sim.AbstractRegister setValue
+INFO: setValue Y=0x00
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.StandardRegister
+20-mag-2008 14.03.36 jmce.sim.AbstractRegister setValue
+INFO: setValue P=0x00
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.StandardRegister
+20-mag-2008 14.03.36 jmce.sim.AbstractRegister setValue
+INFO: setValue S=0x00
+20-mag-2008 14.03.36 jmce.sim.AbstractHardware reset
+INFO: Reset ==> jmce.sim.StandardRegister
+20-mag-2008 14.03.36 jmce.sim.AbstractRegister setValue
+INFO: setValue PC=0xFFFC
