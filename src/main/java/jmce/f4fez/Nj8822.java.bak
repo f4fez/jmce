@@ -1,0 +1,124 @@
+package jmce.f4fez;
+
+import jmce.sim.AbstractLockRangePll;
+import jmce.sim.Memory;
+import jmce.sim.MemoryWriteListener;
+import jmce.sim.SIMException;
+import jmce.sim.memory.MemoryBit;
+
+public class Nj8822 extends AbstractLockRangePll {
+
+	// Total divider MP+A;
+	private final int prescaler;
+
+	/**
+	 * Clock pin.
+	 */
+	private MemoryBit clock;
+
+	/**
+	 * DATA pin.
+	 */
+	private MemoryBit data;
+
+	/**
+	 * CE pin.
+	 */
+	private MemoryBit ce;
+
+	/**
+	 * Listener mapped to the clock pin.
+	 */
+	private MemoryWriteListener clockListener;
+
+	/**
+	 * Listener mapped to the ce pin.
+	 */
+	private MemoryWriteListener ceListener;
+
+	public Nj8822(final int clockRef, final int lockStart, final int lockEnd,
+			final int prescaler) {
+		super(clockRef, lockStart, lockEnd);
+		this.prescaler = prescaler;
+
+		clockListener = new MemoryWriteListener() {
+
+			@Override
+			public void writeMemory(Memory memory, int address, int value,
+					int oldValue) throws SIMException {
+				//TODO
+			}
+		};
+		
+		ceListener = new MemoryWriteListener() {
+			
+			@Override
+			public void writeMemory(Memory memory, int address, int value, int oldValue)
+					throws SIMException {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+	}
+
+	private void setCounter(final int m, final int a) {
+		setLoopDivider(m * prescaler + a);
+	}
+
+	private void setCounter(final int m, final int a, final int ref) {
+		setDividers(ref, m * prescaler + a);
+	}
+
+	/**
+	 * @return the clock
+	 */
+	public MemoryBit getClock() {
+		return clock;
+	}
+
+	/**
+	 * @param clb
+	 *            the clock to set
+	 */
+	public void setClock(MemoryBit clock) {
+		if (this.clock != null) {
+			this.clock.removeMemoryWriteListener(clockListener);
+		}
+		this.clock = clock;
+		this.clock.addMemoryWriteListener(clockListener);
+	}
+
+	/**
+	 * @return the data
+	 */
+	public MemoryBit getData() {
+		return data;
+	}
+
+	/**
+	 * @param data
+	 *            the data to set
+	 */
+	public void setData(MemoryBit data) {
+		this.data = data;
+	}
+
+	/**
+	 * @return the ce
+	 */
+	public MemoryBit getCe() {
+		return ce;
+	}
+
+	/**
+	 * @param ce
+	 *            the ce to set
+	 */
+	public void setCe(MemoryBit ce) {
+		if (this.ce != null) {
+			this.ce.removeMemoryWriteListener(ceListener);
+		}
+		this.ce = ce;
+		this.ce.addMemoryWriteListener(ceListener);
+	}
+}
